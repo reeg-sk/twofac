@@ -11,18 +11,13 @@ Inspired by [node-2fa](https://github.com/jeremyscalpello/node-2fa) & [notp](htt
 ```javascript
 const twofac = require("twofac");
 
-const { secret, secret_b32, uri, qr } =
-  twofac.generateSecret("Unicorn company", "username");
+const { secret, secret_b32, uri, qr } = twofac.generateSecret("Unicorn company", "username");
 
 console.log(
-  "Secret:",
-  secret,
-  "\nSecret BASE32:",
-  secret_b32,
-  "\nURI:",
-  uri,
-  "\nQR:",
-  qr
+  "Secret:", secret,
+  "\nSecret BASE32:", secret_b32,
+  "\nURI:", uri,
+  "\nQR:", qr
 );
 /*
  * Secret: mFbYJHWtwVh_TWDJra-hAaLSsouZnrA6yD42hPXNhzh79X7QMTVdNV7AR4iOLlcUDtTUAuG6wTVqNuQKB_6IFQ
