@@ -1,7 +1,11 @@
 # Twofac
 
 is a simple 2FA implementation for Node.js.
+
+
 Time-Based One-Time Password Algorithm - [RFC-6238](https://datatracker.ietf.org/doc/html/rfc6238).
+
+
 This project is based on [node-2fa](https://github.com/jeremyscalpello/node-2fa) & [notp](https://github.com/guyht/notp).
 
 ### Installation
