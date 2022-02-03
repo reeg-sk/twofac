@@ -1,0 +1,25 @@
+{
+  "name": "twofac",
+  "version": "0.0.1",
+  "description": "2FA for Node.js",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reeg-sk/twofa.git"
+  },
+  "keywords": [
+    "2fa",
+    "nodejs",
+    "otpauth"
+  ],
+  "author": "reeg-sk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reeg-sk/twofa/issues"
+  },
+  "homepage": "https://github.com/reeg-sk/twofa#readme",
+  "dependencies": {
+    "base32-encode": "^2.0.0"
+  }
+}
