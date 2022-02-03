@@ -1,6 +1,6 @@
 {
   "name": "twofac",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "2FA for Node.js",
   "main": "index.js",
   "type": "module",

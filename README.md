@@ -1,8 +1,8 @@
 # Twofac
 
-is a 2FA implementation for Node.js.
-
-Inspired by [node-2fa](https://github.com/jeremyscalpello/node-2fa) & [notp](https://github.com/guyht/notp)
+is a simple 2FA implementation for Node.js.
+Time-Based One-Time Password Algorithm - [RFC-6238](https://datatracker.ietf.org/doc/html/rfc6238).
+This project is based on [node-2fa](https://github.com/jeremyscalpello/node-2fa) & [notp](https://github.com/guyht/notp).
 
 ### Installation
 ```bash
@@ -67,6 +67,15 @@ generateToken(secret, opts);
  */
 verifyToken(token, secret, opts);
 ```
+
+
+| opts          | type     | default | description                                          |
+| ------------- | -------- | :-----: | ---------------------------------------------------- |
+| secret_length | `number` | `64`    | Length of generated secret                           |
+| algorithm     | `string` | `SHA1`  | Hash algorithm (`SHA1`, `SHA256` or `SHA512`)        |
+| digits        | `number` | `6`     | The number of digits for OTP                         |
+| period        | `number` | `30`    | Time in seconds for how long is OTP valid            |
+| window        | `number` | `2`     | How many counter in past and future should check too |
 
 ### License
 
