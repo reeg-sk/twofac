@@ -75,7 +75,7 @@ verifyToken(token, secret, opts);
 | algorithm     | `string` | `SHA1`  | Hash algorithm (`SHA1`, `SHA256` or `SHA512`)        |
 | digits        | `number` | `6`     | The number of digits for OTP                         |
 | period        | `number` | `30`    | Time in seconds for how long is OTP valid            |
-| window        | `number` | `2`     | How many counter in past and future should check too |
+| window        | `number` | `2`     | How many periods in past and future should check too |
 
 ### License
 
