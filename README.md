@@ -1,34 +1,32 @@
 # Twofac
 
-is a 2FA implementation for Node.js.
+is a simple 2FA implementation for Node.js.
+Time-Based One-Time Password Algorithm - [RFC-6238](https://datatracker.ietf.org/doc/html/rfc6238).
+This project is based on [node-2fa](https://github.com/jeremyscalpello/node-2fa) & [notp](https://github.com/guyht/notp).
 
-Inspired by [node-2fa](https://github.com/jeremyscalpello/node-2fa) & [notp](https://github.com/guyht/notp)
+### Installation
+```bash
+npm install twofac --save
+```
 
 ### Usage
-
-`npm install twofac --save`
-
 ```javascript
 const twofac = require("twofac");
 
-const { secret, secret_b32, uri, qr } = twofac.generateSecret("Unicorn company", "username");
-
-console.log(
-  "Secret:", secret,
-  "\nSecret BASE32:", secret_b32,
-  "\nURI:", uri,
-  "\nQR:", qr
-);
+const generated_secret = twofac.generateSecret("Unicorn company", "username");
+console.log(generated_secret);
 /*
- * Secret: mFbYJHWtwVh_TWDJra-hAaLSsouZnrA6yD42hPXNhzh79X7QMTVdNV7AR4iOLlcUDtTUAuG6wTVqNuQKB_6IFQ
- * URI: otpauth://totp/Unicorn%20company:reeg?secret=<secret_b32>&issuer=Unicorn%20company&algorithm=SHA1&digits=6&period=30
- * QR: https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=otpauth%3A%2F%2Ftotp%2FUnicorn%20company%3Areeg%3Fsecret%3D<secret_b32>%26issuer%3DUnicorn%20company%26algorithm%3DSHA1%26digits%3D6%26period%3D30
+{
+  secret: 'MN1daU6PyEHU7gUu7m8POIZUCC723Y4zsSp0xGnc4BfZREBHJhBHTPdGCrZgi3Bg98n_TuoYsjgESS9MNsmA0g',
+  secret_b32: 'JVHDCZDBKU3FA6KFJBKTOZ2VOU3W2OCQJ5EVUVKDIM3TEM2ZGR5HGU3QGB4EO3TDGRBGMWSSIVBEQSTIIJEFIUDEI5BXEWTHNEZUEZZZHBXF6VDVN5MXG2THIVJVGOKNJZZW2QJQM4',
+  uri: 'otpauth://totp/Unicorn%20company:username?secret=JVHDCZDBKU3FA6KFJBKTOZ2VOU3W2OCQJ5EVUVKDIM3TEM2ZGR5HGU3QGB4EO3TDGRBGMWSSIVBEQSTIIJEFIUDEI5BXEWTHNEZUEZZZHBXF6VDVN5MXG2THIVJVGOKNJZZW2QJQM4&issuer=Unicorn%20company&algorithm=SHA1&digits=6&period=30',
+  qr: 'https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=otpauth%3A%2F%2Ftotp%2FUnicorn%2520company%3Ausername%3Fsecret%3DJVHDCZDBKU3FA6KFJBKTOZ2VOU3W2OCQJ5EVUVKDIM3TEM2ZGR5HGU3QGB4EO3TDGRBGMWSSIVBEQSTIIJEFIUDEI5BXEWTHNEZUEZZZHBXF6VDVN5MXG2THIVJVGOKNJZZW2QJQM4%26issuer%3DUnicorn%2520company%26algorithm%3DSHA1%26digits%3D6%26period%3D30'
+}
  */
 
 token = twofac.generateToken(secret);
-
 console.log(token);
-// 123456
+// 654321
 
 const is_valid = twofac.verifyToken(token, secret);
 
@@ -69,6 +67,15 @@ generateToken(secret, opts);
  */
 verifyToken(token, secret, opts);
 ```
+
+
+| opts          | type     | default | description                                          |
+| ------------- | -------- | :-----: | ---------------------------------------------------- |
+| secret_length | `number` | `64`    | Length of generated secret                           |
+| algorithm     | `string` | `SHA1`  | Hash algorithm (`SHA1`, `SHA256` or `SHA512`)        |
+| digits        | `number` | `6`     | The number of digits for OTP                         |
+| period        | `number` | `30`    | Time in seconds for how long is OTP valid            |
+| window        | `number` | `2`     | How many counter in past and future should check too |
 
 ### License
 
