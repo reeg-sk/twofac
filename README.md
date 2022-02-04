@@ -81,6 +81,15 @@ verifyToken(token, secret, opts);
 | period        | `number` | `30`    | Time in seconds for how long is OTP valid            |
 | window        | `number` | `2`     | How many periods in past and future should check too |
 
+
+### Tested authenticator apps
+| App | Platform |
+| --- | -------- |
+| [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458) | `iOS`
+| [Google Authenticator](https://apps.apple.com/us/app/google-authenticator/id388497605) | `iOS`
+| [Authenticator](https://apps.apple.com/us/app/authenticator/id766157276) | `iOS`
+| [2FA Authenticator (2FAS)](https://apps.apple.com/us/app/2fa-authenticator-2fas/id1217793794) | `iOS`
+*Some Authenticators does not support more than 6 digits or different algorithms.*
 ### License
 
 Twofac is licensed under [MIT License](./LICENSE).
